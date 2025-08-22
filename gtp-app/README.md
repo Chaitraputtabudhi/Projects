@@ -11,6 +11,7 @@ templates: This directory contains all the HTML files of the project.
 
 gpt cdetails :
 
+steps to get api-key : https://how.dev/answers/how-to-get-api-key-of-gpt-3
 key : test-gpt-key : 
 api name : gpt-app
 

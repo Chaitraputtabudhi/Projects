@@ -1,26 +1,30 @@
 const mongoose = require('mongoose');
 const { autoIncrement } = require('mongoose-plugin-autoinc');
 
-const Result = new mongoose.Schema ({
+const resultSchema = new mongoose.Schema ({
     id: {
         type: Number,
         unique: true,
     },
-    time: {
+    title: {
         type: String,
         required: true,
     },
-    messageType: {
+    description: {
         type: String,
         required: true,
     },
-    message: {
+    snippet: {
+        type: String,
+        required: true,
+    },
+    url: {
         type: String,
         required: true,
     },
 });
 
-Result.plugin(autoIncrement, {model: 'Result', field: 'id', startAt: 1, incrementBy: 1});
+resultSchema.plugin(autoIncrement, {model: 'Result', field: 'id', startAt: 1, incrementBy: 1});
 
 
-module.exports = mongoose.model('Result',Result);
+module.exports = mongoose.model('Result',resultSchema);
