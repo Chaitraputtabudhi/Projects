@@ -1,3 +1,10 @@
+The search results shown by the project include the following:
+
+The title of the item
+A detailed description of the item
+A snippet of the content
+The URL of the item
+
 bin/www: This is the entry point of the application.
 
 app.js: This is the main Express server configuration file.
