@@ -1,1 +1,25 @@
-
+pipeline{
+  agent any
+  stages{
+    stage('Checkout Code'){
+      steps{
+        git "https://github.com/Chaitraputtabudhi/Projects/edit/main/MERN-Project"
+      }
+    }
+    stage('Build'){
+      steps{
+        sh 'echo "building the application."'
+      }
+    }
+    stage('Test'){
+      steps{
+        sh 'echo "Testing the application"'
+      }
+    }
+    stage('Deploy'){
+      steps{
+        sh 'echo "Deploying the application"'
+      }
+    }
+  }
+}
