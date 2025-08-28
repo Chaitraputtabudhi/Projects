@@ -3,7 +3,7 @@ pipeline{
   stages{
     stage('Checkout Code'){
       steps{
-        git "https://github.com/Chaitraputtabudhi/Projects/edit/main/MERN-Project"
+        git "https://github.com/Chaitraputtabudhi/Projects.git"
       }
     }
     stage('Build'){
