@@ -3,6 +3,11 @@ pipeline {
     environment {
         IMAGE_NAME = 'chaitraputtabudhi/mern-project'
     }
+    stage('Clean Workspace') {
+    steps {
+        deleteDir()
+    }
+}
 
     stages {
         stage('Checkout Code') {
