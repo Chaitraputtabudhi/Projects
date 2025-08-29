@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment{
+        IMAGE_NAME = 'Chaitraputtabudhi/Projects/MERN-Project'
+    }
 
     stages {
         stage('Checkout Code') {
@@ -10,15 +13,22 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
-                sh 'echo building the application.'
+                bat "dicker build -t %IMAGE_NAME%:latest ."
             }
         }
 
-        stage('Test') {
+        stage('Push to Dockerhub') {
             steps {
-                sh 'echo Testing the application'
+                withCredentials([usernamePassword(credentialsId: 'chaitraputtabudhi', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]){
+                    bat """
+                    echo %DOCKER_PASS% |
+                    docker login -u %DOCKER_USER% --password-stdin
+                    docker push %IMAGE_NAME%:latest
+                    docker logout
+                    """
+                }
             }
         }
 
