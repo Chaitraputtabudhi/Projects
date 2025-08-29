@@ -6,12 +6,10 @@ pipeline {
 
     stages {
         stage('Checkout Code') {
-            steps {
-                git branch: 'main',
-                    url: 'https://github.com/Chaitraputtabudhi/Projects.git',
-                    credentialsId: 'Chaitraputtabudhi'
-            }
-        }
+    steps {
+        sh 'git clone -b main https://github.com/Chaitraputtabudhi/Projects.git MERN-Project'
+    }
+}
 
         stage('Build Docker Image') {
             steps {
