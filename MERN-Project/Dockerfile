@@ -1,5 +1,5 @@
 # Stage 1: Build frontend
-FROM node:18 AS frontend-builder
+FROM node:18 AS client-builder
 WORKDIR /app
 COPY client/package*.json ./client/
 RUN cd client && npm install
